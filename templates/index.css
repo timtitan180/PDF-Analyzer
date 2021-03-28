@@ -1,0 +1,43 @@
+
+* {
+    box-sizing:border-box;
+    display:grid;
+    font-family: Trirong, serif;
+}
+
+.mainContainer {
+    margin-left:450px;
+	margin-top:auto;
+	height:400px;
+	width:400px;
+	border:1px solid black;
+    border-radius:16px
+}
+
+
+@media only screen and (max-width:600px) {
+   body {
+    height:auto;
+    width:auto;
+    margin:auto;
+   }
+
+   .mainContainer {
+        height:200px;
+        margin:auto;
+        right:20px;
+        width:200px;
+   }
+
+}
+
+
+.loadingImg {
+visibility:hidden
+}
+
+#result {
+    color:green;
+    font-size:16px;
+
+}
