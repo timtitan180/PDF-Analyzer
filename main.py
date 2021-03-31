@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, url_for, redirect, session
 
 from flask_sqlalchemy import SQLAlchemy
-from typing import Callable
 
 from datetime import date
 
@@ -17,6 +16,8 @@ import pdfplumber
 app = Flask(__name__)
 
 db = SQLAlchemy(app)
+
+db.init_app(app)
 
 #
 # class files(db.Model):
@@ -35,8 +36,6 @@ MAX_FILE_SIZE = 24 * 1024 * 1024
 
 ALLOWED_EXT = 'pdf'
 
-DATABASE = os.environ["DATABASE"]
-
 word_counts = {}
 
 errors = []
@@ -45,7 +44,7 @@ PORT = 4210
 
 date = date.today()
 
-app.config['SQL_ALCHEMY_DATABASE_URI'] = "sqlite:////files/files.db"
+
 
 
 def check_file_extension(filename):
@@ -80,12 +79,10 @@ def post_route():
         sentences = pdf_paragraphs.split()
         for word in sentences:
             if (sentences.count(word) > 1):
-                analyzer = f"'{word}' is repeated a lot in the file"
-                # new_data = Files(chosen_file, analyzer)
-                # db.session.add(new_data)
-                return render_template("index.html", errors=errors, pdf_analysis=analyzer, datestamp=date)
+                analysis = f"'{word}' is repeated a lot in the file"
+                return render_template("index.html", errors=errors, pdf_analysis=analysis, datestamp=date)
+
 
 
 if __name__ == "__main__":
-    db.create_all()
     app.run(debug=True, PORT=os.environ['FLASK_RUN_PORT'])
