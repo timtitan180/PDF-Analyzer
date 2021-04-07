@@ -4,8 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 from datetime import date
 
-import pytest
-
 '''from database import data
 import sqlite3'''
 
@@ -15,9 +13,6 @@ import pdfplumber
 
 app = Flask(__name__)
 
-db = SQLAlchemy(app)
-
-db.init_app(app)
 
 #
 # class files(db.Model):
