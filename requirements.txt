@@ -29,7 +29,6 @@ pyparsing==2.4.7
 PyPDF2==1.26.0
 pytest==6.2.2
 python-dotenv==0.15.0
-pytz==021.1
 regex==2021.3.17
 requests==2.25.1
 setuptools==49.2.1
