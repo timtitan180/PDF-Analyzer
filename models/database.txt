@@ -1,0 +1,16 @@
+def test_db():
+
+    newFile = Files(filename=".pdf", repeated_word="SKILL")
+    db.session.add(newFile)
+    db.session.commit()
+    newFile.query.filter_by(filename=".pdf")
+
+
+class Files(db.Model):
+    __tablename__ = "files"
+    filename = db.Column(db.String(120), primary_key=True)
+    repeated_word = db.Column(db.String(130))
+
+    def __init__(self, filename, repeated_word):
+        self.filename = filename
+        self.repeated_word = repeated_word
