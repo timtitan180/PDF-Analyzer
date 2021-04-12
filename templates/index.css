@@ -1,7 +1,6 @@
 
 * {
     box-sizing:border-box;
-    display:grid;
     font-family: Trirong, serif;
 }
 
@@ -40,4 +39,8 @@ visibility:hidden
     color:green;
     font-size:16px;
 
+}
+
+footer {
+    text-align:center;
 }
