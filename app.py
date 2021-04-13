@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 
 #
-# class files(db.Model):
+# class Files(db.Model):
 #     _id = db.Column("id", db.Integer(100))
 #     filename = db.Column("filename", db.String)
 #     repeated_word = db.Column(db.String())
