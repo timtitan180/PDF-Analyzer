@@ -1,3 +1,16 @@
-PDF Analyzer
+  PDF Analyzer
 
-An Application made with Flask for the backend, HTML And CSS for the frontend and Heroku for deployment that scans a file and outputs the most repeated words from the text.
+  A web application that scans a file and outputs the most repeated words from the text.
+  
+  Technologies used:
+  Flask (Python Framework)
+  HTML,CSS
+  PyTest
+  Heroku
+  
+  What I learned:
+  
+  -Using Flask to make requests to the browser and render response as a web page
+  -How to deploy a Flask application using Heroku
+  -How to integrate file inputs into my system.
+  
