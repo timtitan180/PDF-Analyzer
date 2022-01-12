@@ -1,0 +1,22 @@
+import timeit
+
+start = timeit.timeit()
+line = "This is an example line"
+
+dic = {"This":"This","Hello":"Whats Up","Bye":"Bye"}
+
+words = line.split()
+    
+count = 0
+
+# repeated_words = []
+ # repeated_words.append(v)
+#print("The repeated words are:"+ str(repeated_words))
+for k,v in dic.items():
+    if k in v:
+        count+=1
+        
+print(count)
+
+
+print(timeit.timeit() - start/1000000)
