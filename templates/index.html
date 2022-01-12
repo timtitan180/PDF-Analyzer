@@ -11,10 +11,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
         </nav>
+</div>
 <form method="POST" action="/analyze_pdf" enctype="multipart/form-data">
-    <div class="mainContainer" style="margin-left:450px;
+    <div class="mainContainer" style="margin-left:800px;
 	margin-top:10px;
 	height:400px;
 	width:400px;
@@ -23,7 +23,7 @@
 	outline:20px grey;
     border-radius:15px;align-items:center">
         <p>
-            <input type="file" class="btn" name="file" autocomplete="off">
+            <input style="margin-top:20px;" type="file" class="btn" name="file" autocomplete="off">
             {% if errors: %}
             {% for error in errors: %}
         <p style="font-family: Arial sans-serif;color:red">{{error}}</p>
@@ -33,9 +33,9 @@
         {% endif %}
         </p>
         <p>
-            <input class="button btn btn-primary" style="display:block;margin-left:150px" type="submit" value="Submit"/>
+            <input class="button btn btn-primary" style="display:block;margin-left:150px;margin-top:45px" type="submit" value="Submit"/>
         </p>
-        <footer>{{datestamp}}</footer>
+        <footer style="float:right;margin-right:10px">{{datestamp}}</footer>
         <div class="imgContainer">
             <img style="visibility:hidden;position:absolute" id="loadingImg" src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"/>
         </div>
@@ -46,8 +46,8 @@
     <script>
         button = document.querySelector(".blueButton")
         button.addEventListener("click",handleSubmit)
-        handleSubmit(){
-            document.querySelector(".imgContainer").style.visibility = "visible"
+        function handleSubmit(){
+            document.querySelector(".imgContainer").style.visibility = "visible";
 
         }
 
