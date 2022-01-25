@@ -15,4 +15,11 @@ button.addEventListener("click",showGif)
     setTimeout(function(){
         document.querySelector("loadingImg").style.visibility = "hidden"
     },1000)
+
+      var menu = document.querySelector(".app");
+
+var menuButton = document.querySelector(".menu-collapser");
+
+menuButton.addEventListener("click", function () {
+  menu.style.marginLeft = "1px";
 }

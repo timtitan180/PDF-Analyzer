@@ -1,0 +1,10 @@
+Name    Email          Password
+John   john6@gmail.com    @rgrgr54%%2df
+
+
+new user: insert into users(name,email,password)
+
+delete user: delete from users where id= :id
+
+update user: alter set %user_field% = %user.value%
+

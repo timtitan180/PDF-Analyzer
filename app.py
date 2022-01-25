@@ -10,6 +10,8 @@ import os
 
 import pdfplumber
 
+from db_connection import database_cursor
+
 app = Flask(__name__)
 
 
@@ -38,15 +40,23 @@ PORT = 4210
 
 date = date.today()
 
+def checkFile(file):
+    filename = file.filename
+    extension = filename[len(filename)-3:len(filename)]
+    if(extension != ALLOWED_EXT):
+        errors.append("File must be a PDF. Sorry!")
+        return render_template("index.html",error=errors)
+    else:
+        print("Uploading file...")
 
 def check_file_extension(filename):
     try:
         extension = os.path.splitext(filename)[1]
         return extension
-    except Exception as exception:
+    except Exception as e:
         errors.append("Only PDF files are accepted")
         redirect(url_for(home_route, errors=errors))
-        print(exception)
+        print(e)
 
 
 def check_file_size(filename):
@@ -64,15 +74,15 @@ def home_route():
 @app.route('/analyze_pdf', methods=['GET', 'POST'])
 def post_route():
     if request.method == "POST":
-        chosen_file = request.files['file']
-        with pdfplumber.open(chosen_file) as pdf:
+        file = request.files['file']
+        with pdfplumber.open(file) as pdf:
             first_page = pdf.pages[0]
-        pdf_paragraphs = first_page.extract_text()
-        sentences = pdf_paragraphs.split()
-        for word in sentences:
-            if (sentences.count(word) > 1):
-                analysis = f"'{word}' is repeated a lot in the file"
-                return render_template("index.html", errors=errors, pdf_analysis=analysis,datestamp=date)
+            pdf_paragraphs = first_page.extract_text()
+            sentences = pdf_paragraphs.split()
+            for word in sentences:
+             if (sentences.count(word) > 1):
+                 analysis = f"'{word}' is repeated a lot in the file"
+        return render_template("index.html", errors=errors, pdf_analysis=analysis,datestamp=date)
 
 
 if __name__ == "__main__":
